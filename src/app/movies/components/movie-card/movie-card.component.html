@@ -6,12 +6,15 @@
       class="bg-gradient-to-b from-[#00000078] absolute w-64 h-96 opacity-0 hover:opacity-100"
     >
       <div class="absolute translate-x-5">
-        <h1 class="translate-y-5">{{ movie.vote_average }}</h1>
+        <h1 class="translate-y-5">
+          {{ movie.vote_average }}
+        </h1>
         <span class="-translate-y-5">imdb</span>
       </div>
       <mat-icon
         class="text-yellow-400 translate-x-40 translate-y-5 text-3xl"
-        title="Top Rated Movie"
+        title="Best Movies"
+        *ngIf="movie.vote_average > 8"
         >star</mat-icon
       >
 
