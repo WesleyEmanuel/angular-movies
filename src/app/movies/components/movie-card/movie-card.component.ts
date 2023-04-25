@@ -7,8 +7,17 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class MovieCardComponent implements OnInit {
   @Input() movie: any;
+  favoriteMovies: number[] = [];
 
   constructor() {}
+
+  toggleFavoriteMovie(movieId: number): void {
+    if (this.favoriteMovies.includes(movieId)) {
+      this.favoriteMovies = this.favoriteMovies.filter((id) => id != movieId);
+    } else {
+      this.favoriteMovies.push(movieId);
+    }
+  }
 
   ngOnInit(): void {}
 }
