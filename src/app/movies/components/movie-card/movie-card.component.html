@@ -1,4 +1,4 @@
-<div class="h-96 bg-black w-64 overflow-hidden hover:scale-105 transition-all">
+<div class="h-96 bg-black w-64 overflow-hidden hover:scale-110 transition-all">
   <div
     class="bg-gradient-to-t from-black absolute w-64 h-96 opacity-0 hover:opacity-100 transition-all"
   >
@@ -24,7 +24,7 @@
         </span>
       </button>
 
-      <h1 class="absolute translate-y-60 pl-4 w-4/5 text-left">
+      <h1 class="absolute translate-y-48 pl-4 w-4/5 text-left">
         {{ movie.title }}
       </h1>
       <button
@@ -38,5 +38,7 @@
       </button>
     </div>
   </div>
-  <img [src]="movie.poster_path" />
+  <div *ngIf="!movie.poster_path.includes('null')">
+    <img [src]="movie.poster_path" />
+  </div>
 </div>

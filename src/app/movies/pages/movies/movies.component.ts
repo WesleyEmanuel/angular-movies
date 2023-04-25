@@ -25,9 +25,24 @@ export class MoviesComponent implements OnInit {
             poster_path: environment.api_img + movie.poster_path,
           };
         });
-        console.log(this.movies);
       },
       (error) => console.log(error)
     );
+  }
+
+  searchMovie(event: any): void {
+    if (event.key == 'Enter') {
+      this.moviesService.searchMovies(event.target.value).subscribe(
+        (movies) => {
+          this.movies = movies.results.map((movie: any) => {
+            return {
+              ...movie,
+              poster_path: environment.api_img + movie.poster_path,
+            };
+          });
+        },
+        (error) => console.log(error)
+      );
+    }
   }
 }
