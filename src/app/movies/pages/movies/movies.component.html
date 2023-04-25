@@ -1,9 +1,14 @@
 <div class="w-full my-10">
-  <input
-    placeholder="Search"
-    class="p-4 px-5 rounded-3xl border-2 outline-none border-amber-600 w-2/5"
-    (keyup)="searchMovie($event); ($event)"
-  />
+  <div
+    class="rounded-3xl border-2 border-amber-600 w-2/5 m-auto flex items-center justify-around opacity-30 hover:opacity-100"
+  >
+    <input
+      placeholder="Search"
+      class="p-4 w-5/6 outline-none opacity-30 focus:opacity-100"
+      (keyup)="searchMovie($event); ($event)"
+    />
+    <mat-icon>search</mat-icon>
+  </div>
 </div>
 <div class="p-10">
   <div
