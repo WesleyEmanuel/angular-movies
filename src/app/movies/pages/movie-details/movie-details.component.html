@@ -1,1 +1,33 @@
-<p>movie-details works!</p>
+<div class="m-10 flex justify-center gap-10">
+  <div class="w-80 h-[480px] bg-black">
+    <div *ngIf="!movie.poster_path.includes('null')">
+      <img [src]="movie.poster_path" />
+    </div>
+    <h1
+      *ngIf="movie.poster_path.includes('null')"
+      class="absolute translate-x-28 translate-y-48"
+    >
+      No image
+    </h1>
+  </div>
+
+  <div class="w-[450px] text-left flex flex-col gap-5">
+    <span class="text-5xl text-amber-600">{{ movie.title }}</span>
+    <p class="text-lg text-justify">{{ movie.overview }}</p>
+    <div class="flex gap-5 items-center">
+      <mat-icon
+        class="text-yellow-500 -translate-y-2"
+        *ngIf="movie.vote_average > 8"
+        >star</mat-icon
+      >
+      <p>
+        Rating:
+        <b class="text-amber-600">{{ movie.vote_average }}</b>
+      </p>
+      <p *ngFor="let gender of movie.genres.slice(0, 3)">
+        {{ gender.name }}
+      </p>
+      <p>{{ movie.release_date.split("-").reverse().join("/") }}</p>
+    </div>
+  </div>
+</div>

@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-movie-card',
@@ -9,7 +10,7 @@ export class MovieCardComponent implements OnInit {
   @Input() movie: any;
   favoriteMovies: number[] = [];
 
-  constructor() {}
+  constructor(private router: Router) {}
 
   toggleFavoriteMovie(movieId: number): void {
     if (this.favoriteMovies.includes(movieId)) {
@@ -17,6 +18,10 @@ export class MovieCardComponent implements OnInit {
     } else {
       this.favoriteMovies.push(movieId);
     }
+  }
+
+  navigateTo(movie_id: string): void {
+    this.router.navigate(['/movies', movie_id]);
   }
 
   ngOnInit(): void {}

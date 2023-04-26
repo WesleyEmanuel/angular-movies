@@ -20,4 +20,8 @@ export class MoviesService {
   searchMovies(name: string): Observable<any> {
     return this.http.get<any>(this.apiUrl('search/movie') + `&query=${name}`);
   }
+
+  getMovieById(movie_id: string): Observable<any> {
+    return this.http.get<any>(this.apiUrl(`movie/${movie_id}`));
+  }
 }
